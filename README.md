@@ -20,7 +20,11 @@ image, instead of calling each model's endpoint by hand.
 
 Supports **object detection, segmentation, regression and classification**.
 
-![Segmentation result drawn on the image](docs/screenshots/segmentation.png)
+<p align="center">
+  <img src="docs/screenshots/segmentation.png" alt="Segmentation result" width="49%">
+  <img src="docs/screenshots/object-detection.png" alt="Object detection result" width="49%">
+</p>
+<p align="center"><em>Segmentation (left) and object detection (right). Click an image to see it full size.</em></p>
 
 Built as a team senior project and used in real lab experiments by AI
 research students.
@@ -157,18 +161,6 @@ sequenceDiagram
 - **Invite links that can't be forged.** Signed JWTs with their own
   `INVITE_SECRET`, valid for 7 days, downloadable as a QR code
   ([`workspaces.service.ts`](nest-backend/src/workspaces/workspaces.service.ts)).
-
-## Screens
-
-**Object detection:** boxes with confidence, one color per class
-
-![Object detection result](docs/screenshots/object-detection.png)
-
-**Classification:** predicted class and confidence
-
-![Classification result](docs/screenshots/classification.png)
-
-<!-- TODO: more screens, e.g. AI model list, project statistics, admin dashboard -->
 
 ## Getting started
 
