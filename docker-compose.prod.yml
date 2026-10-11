@@ -49,9 +49,9 @@ services:
       context: ./ReactFrontend
       dockerfile: Dockerfile.prod
     restart: unless-stopped
+    # HTTPS ends at the reverse proxy in front of the server, which forwards plain HTTP to port 80
     ports:
       - 80
-      - 443
     networks:
       - ai_garden_network
     depends_on:
