@@ -20,7 +20,7 @@ image, instead of calling each model's endpoint by hand.
 
 Supports **object detection, segmentation, regression and classification**.
 
-<!-- TODO: hero screenshot, e.g. ![Prediction result](docs/screenshots/predict.png) -->
+![Segmentation result drawn on the image](docs/screenshots/segmentation.png)
 
 Built as a team senior project and used in real lab experiments by AI
 research students.
@@ -91,7 +91,7 @@ sequenceDiagram
 
 ```
 +-----------------------------------------------------------------+
-| AI Garden   Document  Workspace  AI List  Admin Console*  (me)  |
+| Logo  Document  Workspace  AI List  Admin Console*  (bell) (me) |
 +-------------------+---------------------------------------------+
 | PROJECT           |  Predict: upload > process > result         |
 |   Detail          |                                             |
@@ -160,13 +160,15 @@ sequenceDiagram
 
 ## Screens
 
-<!-- TODO: screenshots, e.g.
-![AI model list](docs/screenshots/ai-list.png)
+**Object detection:** boxes with confidence, one color per class
+
 ![Object detection result](docs/screenshots/object-detection.png)
-![Segmentation result](docs/screenshots/segmentation.png)
-![Project statistics](docs/screenshots/project-detail.png)
-![Admin dashboard](docs/screenshots/admin-dashboard.png)
--->
+
+**Classification:** predicted class and confidence
+
+![Classification result](docs/screenshots/classification.png)
+
+<!-- TODO: more screens, e.g. AI model list, project statistics, admin dashboard -->
 
 ## Getting started
 
