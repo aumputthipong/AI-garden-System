@@ -3,6 +3,7 @@ import { RegisterDTO } from './dto/register.dto';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { getAdminEmails } from 'src/common/utils/admin-emails.util';
 
 
 @Injectable()
@@ -12,7 +13,7 @@ export class UserService {
     private readonly userRepository: Repository<User>,
     
   ) {}
-  private allowedPromoters: string[] = ['taravichet@it.kmitl.ac.th','64070007@kmitl.ac.th', '64070079@kmitl.ac.th']; // 🔹 อีเมลที่อนุญาต
+  private allowedPromoters: string[] = getAdminEmails(); // 🔹 อีเมลที่อนุญาต (จาก env ADMIN_EMAILS)
 
   create(registerDTO: RegisterDTO): Promise<User> {
     const newUser = this.userRepository.create(registerDTO);

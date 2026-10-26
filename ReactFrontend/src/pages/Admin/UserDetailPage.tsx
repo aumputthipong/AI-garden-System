@@ -25,7 +25,10 @@ const UserDetailPage = () => {
   const { allAiModelWithApprovalData, isLoadingallAiModelWithApproval } = useAiData();
   const { user } = useAuth(); 
 
-  const allowedPromoters = ['taravichet@it.kmitl.ac.th','64070007@kmitl.ac.th', '64070079@kmitl.ac.th'];
+  const allowedPromoters = (import.meta.env.VITE_ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((email: string) => email.trim())
+    .filter(Boolean);
 
 
   const canPromote = user && allowedPromoters.includes(user.email);

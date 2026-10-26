@@ -7,6 +7,7 @@ import { UserService } from "src/user/user.service";
 import { Repository } from "typeorm";
 import * as path from 'path';
 import { downloadImage } from "src/common/utils/get-image-profile.util";
+import { getAdminEmails } from "src/common/utils/admin-emails.util";
 @Injectable()
 export class AuthService{
   constructor(
@@ -27,7 +28,7 @@ export class AuthService{
   
     const { email, name, picture, googleId } = req.user;
     let user = await this.userRepository.findOne({ where: { email } });
-    const adminEmails = ['taravichet@it.kmitl.ac.th','64070079@kmitl.ac.th', '64070007@kmitl.ac.th'];
+    const adminEmails = getAdminEmails();
 
     const urlWithoutQuery = picture.split('?')[0];
     const ext = path.extname(urlWithoutQuery) || '.jpg';

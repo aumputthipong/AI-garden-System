@@ -32,7 +32,15 @@ import {  NoteModule } from './note_history/note.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [typeorm]
+      load: [typeorm],
+      // ให้แอปไม่ start ถ้าขาด env ที่จำเป็น แทนที่จะไปพังตอน runtime
+      validate: (config) => {
+        const missing = ['INVITE_SECRET', 'JWT_SECRET', 'ADMIN_EMAILS'].filter((key) => !config[key]);
+        if (missing.length) {
+          throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
+        }
+        return config;
+      },
 
     }),
     TypeOrmModule.forRootAsync({
