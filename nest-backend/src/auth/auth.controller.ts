@@ -19,7 +19,7 @@ export class AuthController {
     res.cookie("redirect_after_login", redirectUrl, {
       // httpOnly: true, 
       // secure: false, 
-      // domain: ".suture-bot.it.kmitl.ac.th", 
+      // domain: ".your-domain.example.com", 
       // maxAge: 1000 * 60 * 10, 
       httpOnly: true,      // ป้องกันการเข้าถึงจาก JavaScript
       secure: true,        // ใช้ HTTPS เท่านั้น
@@ -44,7 +44,7 @@ export class AuthController {
     // res.cookie("access_token", accessToken, {
     //   httpOnly: true,
     //   secure: false,
-    //   domain: process.env.NODE_ENV === "production" ? ".suture-bot.it.kmitl.ac.th" : undefined,
+    //   domain: process.env.NODE_ENV === "production" ? ".your-domain.example.com" : undefined,
     // });
     
     const redirectUrl = req.cookies?.["redirect_after_login"] || "/";
@@ -61,7 +61,7 @@ export class AuthController {
     res.clearCookie('access_token', {
       // httpOnly: true, // ควรเป็น true เพื่อป้องกัน XSS
       // secure: false, 
-      // domain: ".suture-bot.it.kmitl.ac.th", // ไม่ต้องมีจุดนำหน้า
+      // domain: ".your-domain.example.com", // ไม่ต้องมีจุดนำหน้า
       httpOnly: true,      // ป้องกันการเข้าถึงจาก JavaScript
       secure: true,        // ใช้ HTTPS เท่านั้น
       sameSite: 'none',  // ป้องกัน CSRF

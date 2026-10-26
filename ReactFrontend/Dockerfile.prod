@@ -16,7 +16,9 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 COPY --from=builder /app/public /usr/share/nginx/html/public
 
-COPY nginx.conf /etc/nginx/nginx.conf
+# nginx image จะแทนค่า ${VAR} ใน template ด้วย env ตอน start แล้วเขียนเป็น /etc/nginx/nginx.conf
+ENV NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
+COPY nginx.conf /etc/nginx/templates/nginx.conf.template
 
 EXPOSE 80
 

@@ -56,8 +56,11 @@ services:
       - ai_garden_network
     depends_on:
       - nest-backend
+    environment:
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:?Set FRONTEND_ORIGIN in .env}
+      MODEL_SUTURE_URL: ${MODEL_SUTURE_URL:?Set MODEL_SUTURE_URL in .env}
     volumes:
-      - ./ReactFrontend/nginx.prod.conf:/etc/nginx/nginx.conf
+      - ./ReactFrontend/nginx.prod.conf:/etc/nginx/templates/nginx.conf.template
 
 volumes:
   db-data:
